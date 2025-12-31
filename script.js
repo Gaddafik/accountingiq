@@ -21,12 +21,10 @@ async function askAI() {
   try {
     const response = await fetch("/.netlify/functions/ask-ai", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question })
     });
 
     const data = await response.json();
-
     const lastMessage = chatBox.querySelector(".ai:last-child");
     if (lastMessage) lastMessage.remove();
 
